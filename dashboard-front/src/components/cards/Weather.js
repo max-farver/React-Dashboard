@@ -2,7 +2,7 @@ import React from 'react'
 
 export const Weather = () => {
   return (
-    <div className="card-weather">
+    <div className="card__weather">
       this is a card
     </div>
   );
