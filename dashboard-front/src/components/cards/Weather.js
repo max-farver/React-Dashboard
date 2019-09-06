@@ -3,7 +3,7 @@ import React from 'react'
 export const Weather = () => {
   return (
     <div className="card__weather">
-      this is a card
+      Weather
     </div>
   );
 }

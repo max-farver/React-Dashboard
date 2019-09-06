@@ -9,24 +9,24 @@ import {
 export const Sidebar = () => {
   return (
     <nav className="sidebar">
-      <div className="sidebar-item">
+      <div className="sidebar--item">
         <span>
-          <FaHome />
+          <FaHome size={50}/>
         </span>
       </div>
-      <div className="sidebar-item">
+      <div className="sidebar--item">
         <span>
-          <FaChartLine />
+          <FaChartLine size={50}/>
         </span>
       </div>
-      <div className="sidebar-item">
+      <div className="sidebar--item">
         <span>
-          <FaCheckSquare />
+          <FaCheckSquare size={50}/>
         </span>
       </div>
-      <div className="sidebar-item">
+      <div className="sidebar--item">
         <span>
-          <FaNewspaper />
+          <FaNewspaper size={50}/>
         </span>
       </div>
     </nav>
