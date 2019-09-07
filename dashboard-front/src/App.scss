@@ -24,7 +24,7 @@ body {
   grid-template-columns: repeat(24, 1fr);
   grid-template-rows: repeat(12, 1fr);
   grid-gap: 32px;
-  background-color: gray;
+  background-color: hsl(0, 0, 10);
 }
 
 //* Sidebar ======================== */
@@ -32,7 +32,7 @@ body {
   margin: 0;
   padding: 32px 0;
   grid-area: sidebar;
-  background-color: darkblue;
+  background-color: hsl(6, 100, 30);
   width: 5vw;
   min-width: 60px;
   max-width: 80px;
@@ -55,7 +55,7 @@ body {
   &__clock {
     border-radius: 10px;
     border: 1px solid black;
-    background-color: lightblue;
+    background-color: hsl(0, 0, 35);
     min-height: 100%;
     min-width: 100%;
     grid-column: 1 / 6;
@@ -64,7 +64,7 @@ body {
   &__weather {
     border-radius: 10px;
     border: 1px solid black;
-    background-color: lightblue;
+    background-color: hsl(0, 0, 35);
     min-height: 100%;
     min-width: 100%;
     grid-column: 6 / 16;
@@ -74,7 +74,7 @@ body {
   &__todo {
     border-radius: 10px;
     border: 1px solid black;
-    background-color: lightblue;
+    background-color: hsl(0, 0, 35);
     min-height: 100%;
     min-width: 100%;
     grid-column: 6 / 16;
@@ -84,7 +84,7 @@ body {
   &__assignments {
     border-radius: 10px;
     border: 1px solid black;
-    background-color: lightblue;
+    background-color: hsl(0, 0, 35);
     min-height: 100%;
     min-width: 100%;
     grid-column: 1 / 6;
@@ -94,7 +94,7 @@ body {
   &__grades {
     border-radius: 10px;
     border: 1px solid black;
-    background-color: lightblue;
+    background-color: hsl(0, 0, 35);
     min-height: 100%;
     min-width: 100%;
     grid-column: 1 / 6;
@@ -102,42 +102,73 @@ body {
   }
 
   &__calendar {
+    display: flex;
+    flex-direction: column;
     border-radius: 10px;
     border: 1px solid black;
-    background-color: lightblue;
+    background-color: hsl(0, 0, 35);
     min-height: 100%;
     min-width: 100%;
     grid-column: 16 / 25;
     grid-row: 1 / 9;
     overflow: hidden;
 
-    table {
-      border-spacing: 0;
-      min-width: 100%;
-      height: 60%;
-      thead {
-        th {
-          background-color: hsl(180, 50, 50);
-          border: 1px solid black;
-          width: calc(100% / 7);
-        }
-      }
+    &__header {
+      display: flex;
+      justify-content: space-around;
+    }
 
-      tbody {
-        td {
-          background-color: hsl(60, 50, 50);
-          border: 1px solid black;
-          text-align: center;
-          font-size: 24px;
+    &__weeks {
+      height: 60%;
+
+      table {
+        border-spacing: 0;
+        min-width: 100%;
+        height: 100%;
+        thead {
+          th {
+            background-color: hsl(180, 50, 50);
+            border: 1px solid black;
+            border-top: none;
+            border-left: none;
+            width: calc(100% / 7);
+          }
+
+          th:last-child {
+            border-right: none;
+          }
+        }
+
+        tbody {
+          tr {
+            td {
+              background-color: hsl(60, 50, 50);
+              border: 1px solid black;
+              text-align: center;
+              font-size: 24px;
+              border-top: none;
+              border-left: none;
+            }
+
+            td:last-child {
+              border-right: none;
+            }
+          }
         }
       }
+    }
+
+    &__agenda {
+      flex: 1;
+      max-height: 40%;
+      background-color: teal;
     }
   }
 
   &__meals {
     border-radius: 10px;
     border: 1px solid black;
-    background-color: lightblue;
+    background-color: hsl(0, 0, 35);
     min-height: 100%;
     min-width: 100%;
     grid-column: 16 / 25;

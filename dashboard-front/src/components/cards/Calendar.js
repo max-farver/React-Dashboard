@@ -1,5 +1,5 @@
-import React from 'react';
-import { useEffect, useState } from 'react';
+import React from "react";
+import { useEffect, useState } from "react";
 
 /**
 |--------------------------------------------------
@@ -65,7 +65,7 @@ const useCalendarBody = month => {
 };
 
 const renderDays = () => {
-  const days = ['Sun', 'Mon', 'Tues', 'Wed', 'Thurs', 'Fri', 'Sat'];
+  const days = ["Sun", "Mon", "Tues", "Wed", "Thurs", "Fri", "Sat"];
   return days.map((key, index) => {
     return <th key={index}>{key.toUpperCase()}</th>;
   });
@@ -73,11 +73,24 @@ const renderDays = () => {
 
 export const Calendar = () => {
   return (
-    <div className='card__calendar'>
-      <table>
-        <thead>{renderDays()}</thead>
-        <tbody>{useCalendarBody(9).calendarBody}</tbody>
-      </table>
+    <div className="card__calendar">
+      <div className="card__calendar__header">
+        <button>&lt;</button>
+        <h2>October</h2>
+        <button>&gt;</button>
+      </div>
+      <div className="card__calendar__weeks">
+        <table>
+          <thead>{renderDays()}</thead>
+          <tbody>{useCalendarBody(9).calendarBody}</tbody>
+        </table>
+      </div>
+      <div className="card__calendar__agenda">
+        <ul>
+          <li>number 1</li>
+          <li>numba twah</li>
+        </ul>
+      </div>
     </div>
   );
 };
