@@ -27,7 +27,6 @@ body {
   background-color: gray;
 }
 
-
 //* Sidebar ======================== */
 .sidebar {
   margin: 0;
@@ -110,6 +109,21 @@ body {
     min-width: 100%;
     grid-column: 16 / 25;
     grid-row: 1 / 9;
+
+    table {
+      border-spacing: 0;
+      thead {
+        th {
+          background-color: hsl(180, 50, 50);
+        }
+      }
+
+      tbody {
+        td {
+          background-color: hsl(60, 50, 50);
+        }
+      }
+    }
   }
 
   &__meals {
