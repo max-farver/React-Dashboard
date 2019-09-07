@@ -1,5 +1,5 @@
-import React from "react";
-import { useEffect, useState } from "react";
+import React from 'react';
+import { useEffect, useState } from 'react';
 
 /**
 |--------------------------------------------------
@@ -11,6 +11,14 @@ import { useEffect, useState } from "react";
 | use html table for styling
 |--------------------------------------------------
 */
+
+const useMonth = selectedMonth => {
+  const [currentMonth, setCurrentMonth] = useState();
+
+  useEffect(() => {
+    setCurrentMonth();
+  }, []);
+};
 
 const useCalendarBody = month => {
   const [calendarBody, setCalendarBody] = useState([]);
@@ -65,27 +73,29 @@ const useCalendarBody = month => {
 };
 
 const renderDays = () => {
-  const days = ["Sun", "Mon", "Tues", "Wed", "Thurs", "Fri", "Sat"];
+  const days = ['Sun', 'Mon', 'Tues', 'Wed', 'Thurs', 'Fri', 'Sat'];
   return days.map((key, index) => {
     return <th key={index}>{key.toUpperCase()}</th>;
   });
 };
 
 export const Calendar = () => {
+  const [month, setMonth] = useState(new Date().getMonth());
+
   return (
-    <div className="card__calendar">
-      <div className="card__calendar__header">
-        <button>&lt;</button>
+    <div className='card__calendar'>
+      <div className='card__calendar__header'>
+        <button onClick={() => setMonth(month - 1)}>&lt;</button>
         <h2>October</h2>
-        <button>&gt;</button>
+        <button onClick={() => setMonth(month + 1)}>&gt;</button>
       </div>
-      <div className="card__calendar__weeks">
+      <div className='card__calendar__weeks'>
         <table>
           <thead>{renderDays()}</thead>
-          <tbody>{useCalendarBody(9).calendarBody}</tbody>
+          <tbody>{useCalendarBody(month).calendarBody}</tbody>
         </table>
       </div>
-      <div className="card__calendar__agenda">
+      <div className='card__calendar__agenda'>
         <ul>
           <li>number 1</li>
           <li>numba twah</li>
