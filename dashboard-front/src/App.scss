@@ -24,7 +24,7 @@ body {
   grid-template-columns: repeat(24, 1fr);
   grid-template-rows: repeat(12, 1fr);
   grid-gap: 32px;
-  background-color: hsl(0, 0, 20);
+  background-color: hsl(0, 0, 10);
 }
 
 //* Sidebar ======================== */
@@ -32,14 +32,14 @@ body {
   margin: 0;
   padding: 32px 0;
   grid-area: sidebar;
-  background-color: hsl(0, 0, 10);
+  background-color: hsl(0, 0, 40);
   width: 5vw;
   min-width: 60px;
   max-width: 80px;
   text-align: center;
 
   span {
-    color: white;
+    color: hsl(0, 0, 0);
   }
 
   &--item {
@@ -117,14 +117,24 @@ body {
       display: flex;
       justify-content: space-around;
       background-color: hsl(0, 0, 25);
+      padding: 0 20px;
       h2 {
         color: hsl(0, 0, 100);
+        margin: 10px auto;
       }
 
       button {
         background-color: hsl(0, 0, 25);
         border: none;
         color: hsl(0, 0, 100);
+
+        .left {
+          align-self: flex-start;
+        }
+
+        .right {
+          align-self: flex-end;
+        }
       }
     }
 
@@ -150,6 +160,7 @@ body {
         }
 
         tbody {
+          height: 90%;
           tr {
             td {
               background-color: hsl(0, 0, 60);
@@ -158,6 +169,18 @@ body {
               font-size: 24px;
               border-top: none;
               border-left: none;
+              padding: 0;
+              margin: 0;
+
+              .active {
+                background-color: hsl(0, 0, 40);
+                height: 100%;
+              }
+
+              .inactive {
+                background-color: hsl(0, 0, 60);
+                height: 100%;
+              }
             }
 
             td:last-child {
@@ -169,9 +192,53 @@ body {
     }
 
     &__agenda {
-      flex: 1;
       max-height: 40%;
       background-color: hsl(0, 0, 35);
+      min-width: 100%;
+
+      &--name {
+        padding-left: 15px;
+        h3 {
+        }
+      }
+
+      &__events {
+        display: flex;
+        flex: 1;
+        flex-direction: row;
+        min-width: 100%;
+        justify-content: space-around;
+        padding-left: 15px;
+
+        &-time {
+          min-width: calc(100% / 9);
+
+          ul {
+            padding-right: 5px;
+            padding-left: 15px;
+          }
+          ul.dashed {
+            list-style-type: none;
+          }
+          ul.dashed > li {
+            text-indent: -5px;
+          }
+          ul.dashed > li:before {
+            content: '-  ';
+            text-indent: -5px;
+          }
+        }
+
+        &-event {
+          flex-grow: 1;
+          border-left: 1px solid black;
+          ul {
+            list-style-type: none;
+            padding-right: 5px;
+            padding-left: 10px;
+          }
+        }
+      }
     }
   }
 
@@ -183,5 +250,17 @@ body {
     min-width: 100%;
     grid-column: 16 / 25;
     grid-row: 9 / 13;
+    display: flex;
+
+    &__day {
+      display: flex;
+      flex-direction: column;
+      width: calc(100% / 7);
+      border: 1px solid black;
+
+      h2 {
+        align-self: center;
+      }
+    }
   }
 }
