@@ -199,6 +199,7 @@ body {
       &--name {
         padding-left: 15px;
         h3 {
+          // TODO
         }
       }
 
@@ -247,19 +248,24 @@ body {
     border: 1px solid black;
     background-color: hsl(0, 0, 35);
     min-height: 100%;
-    min-width: 100%;
+    max-width: 100%;
     grid-column: 16 / 25;
     grid-row: 9 / 13;
     display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    padding: 0 15px;
 
     &__day {
       display: flex;
-      flex-direction: column;
-      width: calc(100% / 7);
-      border: 1px solid black;
+      height: 25%;
 
-      h2 {
-        align-self: center;
+      h2.day {
+        color: white;
+      }
+
+      h2.meal {
+        color: hsl(0, 0, 60);
       }
     }
   }
